@@ -1,0 +1,10 @@
+.article-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.article {
+  border: 1px solid green;
+  width: 200px;
+}
