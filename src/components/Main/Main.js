@@ -9,7 +9,7 @@ export default class Main extends Component {
     return (
       <div className='main-wrapper'>
         <Switch>
-          <Route exact path='/home' component={ArticleList} />
+          <Route path='/home' component={ArticleList} />
           <Route path='/add' component={AddForm} />
         </Switch>
       </div>

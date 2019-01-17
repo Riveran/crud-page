@@ -7,10 +7,12 @@ import News from './Article'
 
 export default class ArticleList extends Component {
   render () {
+    console.log('1', Articles)
+    console.log('2', News)
     return (
       <div className='article-wrapper'>
         <Switch>
-          <Route exact path='/home/' component={Articles} />
+          <Route exact path='/home' component={Articles} />
           <Route path='/home/:id' component={News} />
         </Switch>
       </div>

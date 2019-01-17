@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { myNews } from '../../article'
 
 const News = props => {
+  console.log(props)
+
   const news = myNews.get(parseInt(props.match.params.id, 10))
   if (!news) {
     return <div>Sorry, but the player was not found</div>
