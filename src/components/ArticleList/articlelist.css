@@ -1,10 +1,13 @@
-.article-wrapper {
+.article-wrapperr {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  margin: 0;
+  padding: 0;
 }
 
 .article {
-  border: 1px solid green;
+  margin: 0;
+  padding: 0;
   width: 200px;
+  margin: 10px;
 }

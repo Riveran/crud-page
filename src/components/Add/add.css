@@ -1,14 +1,53 @@
-.add {
+.add-article {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 1px solid red;
   width: 200px;
+  height: 200px;
 }
 
 .add-item {
+  background: #007ddc;
+  box-sizing: content-box;
+  border: none;
+  color: #fff;
   height: 40px;
   width: 70px;
+}
+
+.add {
+  margin: 0 5px 5px 0;
+  width: 550px;
+  border: 1px dashed rgba(0, 89, 181, 0.82);
+  padding: 5px;
+}
+
+.add__text {
+  height: 300px;
+}
+.add__author,
+.add__text,
+.add__btn,
+.add__checkrule {
+  display: block;
+  margin: 0 0 5px 0;
+  padding: 5px;
+  width: 94%;
+  border: 1px solid rgba(0, 89, 181, 0.82);
+}
+.add__checkrule {
+  border: none;
+  font-size: 12px;
+}
+.add__btn {
+  box-sizing: content-box;
+  color: #fff;
+  text-transform: uppercase;
+  background: #007ddc;
+}
+.add__btn:disabled {
+  background: #ccc;
+  color: #999;
 }

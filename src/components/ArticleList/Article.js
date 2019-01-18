@@ -1,18 +1,23 @@
-import React, { Component } from 'react'
-import { myNews } from '../../article'
+import React from 'react'
+import { connect } from 'react-redux'
 
 const News = props => {
-  console.log(props)
-
-  const news = myNews.get(parseInt(props.match.params.id, 10))
+  const { article } = props
+  const news = article.myNews.get(parseInt(props.match.params.id, 10))
   if (!news) {
-    return <div>Sorry, but the player was not found</div>
+    return <div>Sorry, but the news was not found</div>
   }
   return (
     <div>
-      <h1>{news.title}</h1>
+      <h3>{news.title}</h3>
+      <img height='400' width='470' src={news.pictures} alt={news.title} />
+      <p>{news.bigText}</p>
     </div>
   )
 }
 
-export default News
+const mapStateToProps = state => ({
+  article: state.article
+})
+
+export default connect(mapStateToProps)(News)
