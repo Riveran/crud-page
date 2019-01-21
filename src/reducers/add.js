@@ -6,7 +6,6 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-  console.log(state)
   switch (action.type) {
     case ADD_NEWS:
       return { ...state, add: action.payload }

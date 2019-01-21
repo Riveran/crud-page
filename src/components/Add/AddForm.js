@@ -13,9 +13,8 @@ class AddForm extends Component {
   }
 
   onBtnClickHandler = e => {
-    e.peventDefault()
     const { title, bigText, picture, category } = this.state
-    this.props.createNews({
+    this.props.setNews({
       id: +new Date(),
       title,
       bigText,
@@ -99,7 +98,13 @@ class AddForm extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    setNews: news => dispatch(createNews(news))
+  }
+}
+
 export default connect(
   () => ({}),
-  { createNews }
+  mapDispatchToProps
 )(AddForm)
