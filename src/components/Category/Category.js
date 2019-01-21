@@ -10,7 +10,6 @@ class Category extends Component {
   render () {
     const { article, category } = this.props
     /* Необходима константа которая будет получать категорию и фильтровать новости */
-    console.log(article.myNews.news, category)
     return (
       <div className='category-wrapper'>
         <ul className='nav-items'>
