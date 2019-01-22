@@ -10,7 +10,7 @@ class Articles extends Component {
 
   getBody = () => {
     const { article } = this.props
-    const body = article.myNews.all().map(items => (
+    const body = article.add.all().map(items => (
       <div className='article' key={items.id}>
         <h3>{items.title}</h3>
         <Link to={`/home/${items.id}`}>

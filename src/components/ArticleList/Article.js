@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const News = props => {
   const { article } = props
-  const news = article.myNews.get(parseInt(props.match.params.id, 10))
+  const news = article.add.get(parseInt(props.match.params.id, 10))
   if (!news) {
     return <div>Sorry, but the news was not found</div>
   }

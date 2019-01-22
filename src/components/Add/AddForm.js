@@ -13,8 +13,9 @@ class AddForm extends Component {
   }
 
   onBtnClickHandler = e => {
+    e.preventDefault()
     const { title, bigText, picture, category } = this.state
-    this.props.setNews({
+    this.props.createNews({
       id: +new Date(),
       title,
       bigText,
@@ -98,13 +99,16 @@ class AddForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => ({})
+
+/* const mapDispatchToProps = dispatch => {
   return {
     setNews: news => dispatch(createNews(news))
   }
 }
+*/
 
 export default connect(
   () => ({}),
-  mapDispatchToProps
+  { createNews }
 )(AddForm)

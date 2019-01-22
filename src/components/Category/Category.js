@@ -14,21 +14,15 @@ class Category extends Component {
       <div className='category-wrapper'>
         <ul className='nav-items'>
           <h3>Categorys</h3>
-          <li className='nav-item__all' onClick={this.handleClick}>
-            All [{article.myNews.news.length}]
-          </li>
+          <li className='nav-item__all'>All [{article.add.news.length}]</li>
           <li className='nav-item__music'>
             Music [
-            {
-              article.myNews.news.filter(item => item.category === 'Music')
-                .length
-            }
-            ]
+            {article.add.news.filter(item => item.category === 'Music').length}]
           </li>
           <li className='nav-item__science'>
             Science [
             {
-              article.myNews.news.filter(item => item.category === 'Science')
+              article.add.news.filter(item => item.category === 'Science')
                 .length
             }
             ]
@@ -36,18 +30,14 @@ class Category extends Component {
           <li className='nav-item__history'>
             History [
             {
-              article.myNews.news.filter(item => item.category === 'History')
+              article.add.news.filter(item => item.category === 'History')
                 .length
             }
             ]
           </li>
           <li className='nav-item__work'>
             Work [
-            {
-              article.myNews.news.filter(item => item.category === 'Work')
-                .length
-            }
-            ]
+            {article.add.news.filter(item => item.category === 'Work').length}]
           </li>
         </ul>
       </div>
