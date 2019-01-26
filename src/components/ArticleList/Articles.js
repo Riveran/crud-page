@@ -5,14 +5,19 @@ import { connect } from 'react-redux'
 
 class Articles extends Component {
   render () {
+    console.log('Articles', this.props)
     return <div className='article-wrapperr'>{this.getBody()}</div>
   }
 
   getBody = () => {
     const { article } = this.props
-    const body = article.add.all().map(items => (
+    const body = article.News.map(items => (
       <div className='article' key={items.id}>
-        <h3>{items.title}</h3>
+        <h3>
+          {items.title.length >= 20
+            ? items.title.slice(0, 17) + '...'
+            : items.title}
+        </h3>
         <Link to={`/home/${items.id}`}>
           <img
             src={items.pictures}
@@ -28,7 +33,8 @@ class Articles extends Component {
 }
 
 const mapStateToProps = state => ({
-  article: state.article
+  article: state.article,
+  category: state.category
 })
 
 export default connect(mapStateToProps)(Articles)

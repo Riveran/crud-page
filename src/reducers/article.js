@@ -1,9 +1,9 @@
-import { myNews } from '../article'
+import { data } from '../data'
 import { ADD_NEWS } from '../constants'
 
 const initialState = {
-  add: myNews,
-  AddNews: myNews.news
+  News: data,
+  Category: 'all'
 }
 
 export default (state = initialState, action) => {
@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
       console.log('action data', action)
       return {
         ...state,
-        AddNews: myNews.news.concat(action.payload)
+        News: state.News.concat(action.article)
       }
     default:
       return state

@@ -3,41 +3,61 @@ import { connect } from 'react-redux'
 import './category.css'
 
 class Category extends Component {
+  state = {
+    category: ''
+  }
+
   handleClick = e => {
-    console.log(e.currentTarget)
+    console.log(e.currentTarget.dataset.category)
+    this.setState({
+      category: e.currentTarget.dataset.category
+    })
   }
 
   render () {
     const { article, category } = this.props
-    /* Необходима константа которая будет получать категорию и фильтровать новости */
     return (
       <div className='category-wrapper'>
         <ul className='nav-items'>
           <h3>Categorys</h3>
-          <li className='nav-item__all'>All [{article.add.news.length}]</li>
-          <li className='nav-item__music'>
+          <li
+            data-category='all'
+            className='nav-item__all'
+            onClick={this.handleClick}
+          >
+            All [{article.News.length}]
+          </li>
+          <li
+            data-category='music'
+            className='nav-item__music'
+            onClick={this.handleClick}
+          >
             Music [
-            {article.add.news.filter(item => item.category === 'Music').length}]
+            {article.News.filter(item => item.category === 'Music').length}]
           </li>
-          <li className='nav-item__science'>
+          <li
+            data-category='science'
+            className='nav-item__science'
+            onClick={this.handleClick}
+          >
             Science [
-            {
-              article.add.news.filter(item => item.category === 'Science')
-                .length
-            }
-            ]
+            {article.News.filter(item => item.category === 'Science').length}]
           </li>
-          <li className='nav-item__history'>
+          <li
+            data-category='history'
+            className='nav-item__history'
+            onClick={this.handleClick}
+          >
             History [
-            {
-              article.add.news.filter(item => item.category === 'History')
-                .length
-            }
-            ]
+            {article.News.filter(item => item.category === 'History').length}]
           </li>
-          <li className='nav-item__work'>
-            Work [
-            {article.add.news.filter(item => item.category === 'Work').length}]
+          <li
+            data-category='work'
+            className='nav-item__work'
+            onClick={this.handleClick}
+          >
+            Work [{article.News.filter(item => item.category === 'Work').length}
+            ]
           </li>
         </ul>
       </div>

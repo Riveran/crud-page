@@ -1,5 +1,6 @@
+import { ADD_CATEGORY } from '../constants/index'
 const initialState = {
-  category: 'All'
+  category: ''
 }
 
 export default (state = initialState, action) => {

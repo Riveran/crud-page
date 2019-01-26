@@ -7,21 +7,29 @@ class AddForm extends Component {
   state = {
     title: '',
     bigText: '',
-    picture: '',
-    category: 'All',
+    pictures: '',
+    category: '',
     agree: false
   }
 
   onBtnClickHandler = e => {
     e.preventDefault()
-    const { title, bigText, picture, category } = this.state
+    const { title, bigText, pictures, category } = this.state
     this.props.createNews({
       id: +new Date(),
       title,
       bigText,
-      picture,
+      pictures,
       category
     })
+    this.setState({
+      title: '',
+      bigText: '',
+      image: '',
+      category: '',
+      agree: false
+    })
+    this.props.history.push('/')
   }
 
   handleChangeCheckBox = e => {
@@ -34,11 +42,11 @@ class AddForm extends Component {
   }
 
   validate = () => {
-    const { title, bigText, picture, category, agree } = this.state
+    const { title, bigText, pictures, category, agree } = this.state
     if (
       title.trim() &&
       bigText.trim() &&
-      picture.trim() &&
+      pictures.trim() &&
       category.trim() &&
       agree
     ) {
@@ -49,7 +57,7 @@ class AddForm extends Component {
   }
 
   render () {
-    const { title, bigText, picture, category } = this.state
+    const { title, bigText, pictures, category } = this.state
     return (
       <div>
         <form className='add'>
@@ -69,14 +77,15 @@ class AddForm extends Component {
             value={bigText}
           />
           <input
-            id='picture'
+            id='pictures'
             type='text'
             className='add__author'
             onChange={this.handleChange}
             placeholder='url картинки'
-            value={picture}
+            value={pictures}
           />
           <select id='category' value={category} onChange={this.handleChange}>
+            <option>Выберите категорию</option>
             <option>Music</option>
             <option>Science</option>
             <option>History</option>
@@ -99,16 +108,15 @@ class AddForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({})
-
-/* const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return {
-    setNews: news => dispatch(createNews(news))
+    createNews: payload => {
+      dispatch(createNews(payload))
+    }
   }
 }
-*/
 
 export default connect(
   () => ({}),
-  { createNews }
+  mapDispatchToProps
 )(AddForm)

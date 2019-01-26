@@ -1,11 +1,11 @@
 .add-article {
+  width: 200px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 200px;
-  height: 200px;
 }
 
 .add-item {
@@ -50,4 +50,12 @@
 .add__btn:disabled {
   background: #ccc;
   color: #999;
+}
+
+.news-wrapper {
+  display: inline;
+}
+
+.news-pictures {
+  float: left;
 }

@@ -1,6 +1,14 @@
-import { ADD_NEWS, ADD_COMMENTS, DELETE_NEWS } from '../constants/index'
+import {
+  ADD_NEWS,
+  ADD_CATEGORY,
+  ADD_COMMENTS,
+  DELETE_NEWS
+} from '../constants/index'
 
-export function createNews (...args) {
-  console.log('action', ...args)
-  return { type: ADD_NEWS, payload: [...args] }
+export function createNews (article) {
+  return { type: ADD_NEWS, article }
+}
+
+export function setCategory (category) {
+  return { type: ADD_CATEGORY, category }
 }

@@ -7,7 +7,7 @@ import News from './Article'
 export default class ArticleList extends Component {
   render () {
     return (
-      <div>
+      <div className='article-list'>
         <Switch>
           <Route exact path='/home' component={Articles} />
           <Route path='/home/:id' component={News} />
