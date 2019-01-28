@@ -1,4 +1,41 @@
 .home-link {
   text-decoration: none;
   color: white;
+  margin-left: 10px;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+}
+
+.loggin-block {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.loggin-form {
+}
+
+.setpassword {
+  width: 100px;
+}
+
+.setloggin {
+  width: 100px;
+}
+
+.loggin-btn {
+  margin-top: 10px;
+  padding: 0;
+  background: none;
+  background: #007ddc;
+  color: white;
+  width: 60px;
+  height: 20px;
+  border: none;
 }

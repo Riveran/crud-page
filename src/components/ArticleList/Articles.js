@@ -5,13 +5,43 @@ import { connect } from 'react-redux'
 
 class Articles extends Component {
   render () {
-    console.log('Articles', this.props)
+    localStorage.setItem('asdasdasd', 'asdasdasd')
+    const { article, category } = this.props
+    console.log(category.category)
     return <div className='article-wrapperr'>{this.getBody()}</div>
   }
 
   getBody = () => {
-    const { article } = this.props
-    const body = article.News.map(items => (
+    const { article, category } = this.props
+    let newArticle
+
+    switch (category.category) {
+      case 'All':
+        newArticle = article.News
+        break
+
+      case 'Music':
+        newArticle = article.News.filter(items => items.category === 'Music')
+        break
+
+      case 'Science':
+        newArticle = article.News.filter(items => items.category === 'Science')
+        break
+
+      case 'History':
+        newArticle = article.News.filter(items => items.category === 'History')
+        break
+
+      case 'Work':
+        newArticle = article.News.filter(items => items.category === 'Work')
+        break
+
+      default:
+        newArticle = article.News
+        break
+    }
+
+    const body = newArticle.map(items => (
       <div className='article' key={items.id}>
         <h3>
           {items.title.length >= 20
@@ -32,9 +62,14 @@ class Articles extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  article: state.article,
-  category: state.category
-})
+/* const mapStateToProps = state => {
+  return { article: state.article, category: state.category }
+} */
 
-export default connect(mapStateToProps)(Articles)
+export default connect(state => {
+  const { article, category } = state
+  return {
+    article: article,
+    category: category
+  }
+})(Articles)

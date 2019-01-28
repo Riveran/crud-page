@@ -2,3 +2,27 @@
   width: 200px;
   height: 200px;
 }
+
+.nav-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  margin: 5px;
+  padding: 0;
+  background: none;
+  background: #007ddc;
+  color: white;
+  width: 120px;
+  height: 20px;
+  border: none;
+}
+
+.btn:hover {
+  background: red;
+}
+
+li {
+  list-style: none;
+}

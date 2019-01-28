@@ -8,7 +8,7 @@ class AddForm extends Component {
     title: '',
     bigText: '',
     pictures: '',
-    category: '',
+    category: ''.toLowerCase(),
     agree: false
   }
 

@@ -10,5 +10,5 @@ export function createNews (article) {
 }
 
 export function setCategory (category) {
-  return { type: ADD_CATEGORY, category }
+  return { type: ADD_CATEGORY, payload: category }
 }
