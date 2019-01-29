@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { logIn } from '../../actions/index'
+import { logIn, logOut } from '../../actions/index'
 
 class LoginForm extends Component {
   state = {
@@ -33,11 +33,27 @@ class LoginForm extends Component {
     }))
   }
 
+  logginOut = () => {
+    this.props.logOut()
+    this.setState({
+      redirectToPreviousRoute: false,
+      username: '',
+      password: ''
+    })
+  }
+
   render () {
     const { username, password, redirectToPreviousRoute } = this.state
     const { errorMsg } = this.props
     if (redirectToPreviousRoute) {
-      return <div className='loggin-block'>Привет, {this.state.username}</div>
+      return (
+        <div className='loggin-block'>
+          Привет, {this.state.username}{' '}
+          <button className='loggin-btn' onClick={this.logginOut}>
+            Login out
+          </button>
+        </div>
+      )
     }
     return (
       <div className='loggin-block'>
@@ -73,7 +89,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  logIn: (params, cb) => dispatch(logIn(params, cb))
+  logIn: (params, cb) => dispatch(logIn(params, cb)),
+  logOut: () => dispatch(logOut())
 })
 
 export default connect(

@@ -38,9 +38,13 @@
   background: none;
   background: #007ddc;
   color: white;
-  width: 60px;
-  height: 20px;
+  width: 70px;
+  height: 30px;
   border: none;
+}
+
+.loggin-btn:hover {
+  background: red;
 }
 
 .error {

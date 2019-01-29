@@ -29,7 +29,7 @@ class AddForm extends Component {
       category: '',
       agree: false
     })
-    this.props.history.push('/')
+    this.props.history.push('/home')
   }
 
   handleChangeCheckBox = e => {

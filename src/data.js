@@ -59,13 +59,3 @@ export const data = [
       'Еще есть группа VK, telegram и канал на youtube! Вся инфа на сайте, не реклама!'
   }
 ]
-
-/*
-  all: function () {
-    return this.news
-  },
-  get: function (id) {
-    const isNews = p => p.id === id
-    return this.news.find(isNews)
-  }
-*/

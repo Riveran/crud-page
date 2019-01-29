@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const News = ({ article: { News }, match }) => {
   const news = News.find(({ id }) => id === +match.params.id)
@@ -20,6 +21,9 @@ const News = ({ article: { News }, match }) => {
       />
       <p>{news.bigText}</p>
       <i>{news.date}</i>
+      <Link className='back' to='/home'>
+        Back
+      </Link>
     </div>
   )
 }

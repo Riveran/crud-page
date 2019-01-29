@@ -47,6 +47,11 @@
   text-transform: uppercase;
   background: #007ddc;
 }
+
+.add__btn,
+.add-item:hover {
+  background: green;
+}
 .add__btn:disabled {
   background: #ccc;
   color: #999;

@@ -3,8 +3,8 @@ import {
   ADD_CATEGORY,
   LOG_IN,
   LOG_IN_FAILURE,
-  ADD_COMMENTS,
-  DELETE_NEWS
+  DELETE_NEWS,
+  LOG_OUT
 } from '../constants/index'
 
 function checkLoggin (params) {
@@ -37,6 +37,12 @@ export function logIn (params, cb) {
         error: true
       })
     }
+  }
+}
+
+export function logOut () {
+  return {
+    type: LOG_OUT
   }
 }
 
