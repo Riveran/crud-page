@@ -1,10 +1,27 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { logIn } from '../../actions/index'
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
   state = {
-    logginStatus: false,
+    redirectToPreviousRoute: false,
     username: '',
     password: ''
+  }
+
+  handleSubmit = e => {
+    e.preventDefault()
+    const { username, password } = this.state
+
+    this.props.logIn(
+      {
+        username,
+        password
+      },
+      () => {
+        this.setState({ redirectToPreviousRoute: true })
+      }
+    )
   }
 
   handleChange = e => {
@@ -17,7 +34,11 @@ export default class LoginForm extends Component {
   }
 
   render () {
-    const { username, password } = this.state
+    const { username, password, redirectToPreviousRoute } = this.state
+    const { errorMsg } = this.props
+    if (redirectToPreviousRoute) {
+      return <div className='loggin-block'>Привет, {this.state.username}</div>
+    }
     return (
       <div className='loggin-block'>
         <form className='loggin-form'>
@@ -37,9 +58,25 @@ export default class LoginForm extends Component {
             value={password}
             className='setpassword'
           />
-          <button className='loggin-btn'>Submit</button>
+          {errorMsg ? <p className='error'>{errorMsg}</p> : null}
+          <button className='loggin-btn' onClick={this.handleSubmit}>
+            Submit
+          </button>
         </form>
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  errorMsg: state.loggin.errorMsg
+})
+
+const mapDispatchToProps = dispatch => ({
+  logIn: (params, cb) => dispatch(logIn(params, cb))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginForm)

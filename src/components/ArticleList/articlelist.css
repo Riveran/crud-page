@@ -15,3 +15,23 @@
 .article-list {
   width: 900px;
 }
+
+.btn-arrticles {
+  margin-top: 10px;
+  padding: 0;
+  background: none;
+  background: #007ddc;
+  color: white;
+  width: 50px;
+  height: 25px;
+  border: none;
+}
+
+.btn-arrticles:hover {
+  background: red;
+}
+
+.del-like {
+  display: flex;
+  justify-content: space-between;
+}

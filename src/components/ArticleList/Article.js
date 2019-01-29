@@ -1,27 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const News = props => {
-  const { article } = props
+const News = ({ article: { News }, match }) => {
+  const news = News.find(({ id }) => id === +match.params.id)
 
-  const news = article.News.filter(
-    items => items.id === parseInt(props.match.params.id, 10)
-  )
+  if (!news) {
+    return <div>Sorry, but the news was not found</div>
+  }
 
-  return news.map(item => (
+  return (
     <div className='news-wrapper'>
-      <h2>{item.title}</h2>
+      <h2>{news.title}</h2>
       <img
         className='news-pictures'
-        src={item.pictures}
+        src={news.pictures}
         height='400'
         width='470'
-        alt={item.title}
+        alt={news.title}
       />
-      <p>{item.bigText}</p>
-      <i>{item.date}</i>
+      <p>{news.bigText}</p>
+      <i>{news.date}</i>
     </div>
-  ))
+  )
 }
 
 const mapStateToProps = state => ({

@@ -2,17 +2,16 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './articlelist.css'
 import { connect } from 'react-redux'
+import { deleteNews } from '../../actions/index'
 
 class Articles extends Component {
   render () {
-    localStorage.setItem('asdasdasd', 'asdasdasd')
-    const { article, category } = this.props
-    console.log(category.category)
+    console.log(this.props)
     return <div className='article-wrapperr'>{this.getBody()}</div>
   }
 
   getBody = () => {
-    const { article, category } = this.props
+    const { article, category, username } = this.props
     let newArticle
 
     switch (category.category) {
@@ -56,20 +55,38 @@ class Articles extends Component {
             alt={items.title}
           />
         </Link>
+        <div className='del-like'>
+          {username ? (
+            <button
+              className='btn-arrticles'
+              onClick={() => {
+                this.handleDelete(items.id)
+              }}
+            >
+              del
+            </button>
+          ) : null}{' '}
+          <button className='btn-arrticles'>Like</button>
+        </div>
       </div>
     ))
     return body
   }
+
+  handleDelete = id => {
+    const { deleteNews } = this.props
+    deleteNews(id)
+  }
 }
 
-/* const mapStateToProps = state => {
-  return { article: state.article, category: state.category }
-} */
-
-export default connect(state => {
-  const { article, category } = state
-  return {
-    article: article,
-    category: category
-  }
-})(Articles)
+export default connect(
+  state => {
+    const { article, category, loggin } = state
+    return {
+      article: article,
+      category: category,
+      username: loggin.user
+    }
+  },
+  { deleteNews }
+)(Articles)
