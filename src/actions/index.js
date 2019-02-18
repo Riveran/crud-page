@@ -4,10 +4,11 @@ import {
   LOG_IN,
   LOG_IN_FAILURE,
   DELETE_NEWS,
-  LOG_OUT
+  LOG_OUT,
+  LIKE
 } from '../constants/index'
 
-function checkLoggin (params) {
+function checkLogin (params) {
   if (
     params.username.toLowerCase() !== 'admin' ||
     params.password !== '12345'
@@ -20,7 +21,7 @@ function checkLoggin (params) {
 
 export function logIn (params, cb) {
   return dispatch => {
-    if (checkLoggin(params)) {
+    if (checkLogin(params)) {
       dispatch({
         type: LOG_IN,
         payload: {
@@ -39,6 +40,11 @@ export function logIn (params, cb) {
     }
   }
 }
+
+export const likeCount = payload => ({
+  type: LIKE,
+  payload
+})
 
 export function logOut () {
   return {

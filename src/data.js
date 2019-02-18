@@ -1,6 +1,7 @@
 export const data = [
   {
     id: 1,
+    count: 0,
     title: 'Лёффлер микс',
     category: 'Music',
     date: '2016-06-09T15:03:23.000Z',
@@ -11,6 +12,7 @@ export const data = [
   },
   {
     id: 2,
+    count: 0,
     title: 'Выступление панасенко',
     date: '2016-08-09T15:03:23.000Z',
     category: 'History',
@@ -20,6 +22,7 @@ export const data = [
   },
   {
     id: 3,
+    count: 0,
     title: 'Вебинар по веб технологиям',
     date: '2016-07-09T15:03:23.000Z',
     category: 'Work',
@@ -29,6 +32,7 @@ export const data = [
   },
   {
     id: 4,
+    count: 0,
     title: 'Ордынский период',
     date: '2016-02-09T15:03:23.000Z',
     category: 'History',
@@ -39,6 +43,7 @@ export const data = [
 
   {
     id: 5,
+    count: 0,
     title: '10 фактов об космосе',
     date: '2014-11-09T15:03:23.000Z',
     category: 'Science',
@@ -50,6 +55,7 @@ export const data = [
 
   {
     id: 6,
+    count: 0,
     title: 'isHome live',
     date: '2016-12-09T15:03:23.000Z',
     category: 'Music',

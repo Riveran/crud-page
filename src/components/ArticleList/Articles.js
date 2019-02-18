@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom'
 import './articlelist.css'
 import { connect } from 'react-redux'
 import { deleteNews } from '../../actions/index'
+import ItemRender from './ItemRender'
 
 class Articles extends Component {
+  state = {
+    like: 0
+  }
+
   render () {
-    console.log(this.props)
     return <div className='article-wrapperr'>{this.getBody()}</div>
   }
 
@@ -39,37 +43,16 @@ class Articles extends Component {
         newArticle = article.News
         break
     }
-
-    const body = newArticle.map(items => (
-      <div className='article' key={items.id}>
-        <h3>
-          {items.title.length >= 20
-            ? items.title.slice(0, 17) + '...'
-            : items.title}
-        </h3>
-        <Link to={`/home/${items.id}`}>
-          <img
-            src={items.pictures}
-            height='300'
-            width='200'
-            alt={items.title}
-          />
-        </Link>
-        <div className='del-like'>
-          {username ? (
-            <button
-              className='btn-arrticles'
-              onClick={() => {
-                this.handleDelete(items.id)
-              }}
-            >
-              del
-            </button>
-          ) : null}{' '}
-          <button className='btn-arrticles'>Like</button>
-        </div>
-      </div>
-    ))
+    const body = newArticle.map(items => {
+      return (
+        <ItemRender
+          key={items.id}
+          items={items}
+          username={username}
+          handleDelete={this.handleDelete}
+        />
+      )
+    })
     return body
   }
 
