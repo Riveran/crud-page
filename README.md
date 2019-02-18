@@ -1,2 +1,1 @@
-npm i
-npm start
+https://crud-page.herokuapp.com/
